@@ -1,2 +1,2 @@
 #!/bin/bash
-acme -o CONNECT.PRG connect-4.asm
+acme -f cbm -o CONNECT4.PRG connect-4.asm

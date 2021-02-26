@@ -2,7 +2,7 @@
 
 *=$0801
 	!word	$080C			; Pointer to next BASIC line
-	!word	$0001			; Line number $0001 = 1
+	!word	$000A			; Line number $000A = 1
 	!byte	$9E			; SYS BASIC token
 	!pet	" $810",0		; Address where ASM starts
 	!word	$0000			; EOF BASIC program

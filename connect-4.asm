@@ -8,5 +8,9 @@
 	!word	$0000			; EOF BASIC program
 *=$0810
 
-; ************************** Global Constants *********************************
+;********************************Inclusions************************************
+!src	"cx16stuff/cx16.inc"
+!src	"cx16stuff/vera0.9.inc"
+
+
 rts

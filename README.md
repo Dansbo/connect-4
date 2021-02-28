@@ -1,5 +1,16 @@
 # connect-4
 
+February 28 2021:
+I succeeded by getting the board loaded to the screen using old routines and macros from the project X-shots I had with my brother.
+
+I have also loaded the pieces that I figure I will be using sprites to move around.
+
+My first obstacle will be to make the sprites appear on the top of the screen and then I figure the user can use the arrow keys and the return bottom to move the piece and release it down the column.
+
+After that I need to have some bytes set aside to store the information of where there are pieces so that the computer at a later time can figure out if anyone has won the game.
+
+____________________________________________________________________________________________________
+
 February 27 2021:
 I am realizing that starting from scratch is a bit of a test for myself. I can only blame myself as I have put this off for way to long.
 

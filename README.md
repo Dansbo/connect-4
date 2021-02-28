@@ -7,6 +7,10 @@ I have also loaded the pieces that I figure I will be using sprites to move arou
 
 My first obstacle will be to make the sprites appear on the top of the screen and then I figure the user can use the arrow keys and the return bottom to move the piece and release it down the column.
 
+As the game has 6 rows by 7 columns I figure that in order to fill all the spaces there should be 42 game pieces in total an thus 21 per player.
+
+The only instance I can figure there would be a draw is if all spaces are filled up and no one has four pieces in a row.
+
 After that I need to have some bytes set aside to store the information of where there are pieces so that the computer at a later time can figure out if anyone has won the game.
 
 ____________________________________________________________________________________________________

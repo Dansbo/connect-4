@@ -17,7 +17,11 @@ Init_VERA:
         rts
 
 Load_Board:
-        +VERA_SET_ADDR $1F200, INC1
+        lda #$1F
+        sta VERA_ADDR_H
+        lda #$20
+        sta VERA_ADDR_M
+        stz VERA_ADDR_L
 
         lda #%11000001
         sta VERA_DATA0

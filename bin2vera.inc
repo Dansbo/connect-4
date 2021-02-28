@@ -2,7 +2,7 @@
 ; *************************** Global variables ********************************
 Board   !text   "connect4board.bin"
 Pieces  !text   "connect4pcs.bin"
-binend:
+Binend:
 
 ;******************************************************************************
 ; Sets Address and Bank number for VERA
@@ -40,7 +40,7 @@ Init_VERA:
 
         rts
 
-Load_Board:
+Load_bins:
         lda #$06                ; Map height/ width disabled ,  Bitmap mode 4BPP
         sta VERA_L0_CONFIG
 
@@ -68,6 +68,10 @@ Load_Board:
 
         lda #%01110001          ; Current field = 0, enable sprite, layers enabled and output mode 1
         sta VERA_DC_VIDEO
+
+        +SET_NAME (Binend-Pieces), Pieces
+
+        +LOAD_VERA $D600, 0
 
 
 

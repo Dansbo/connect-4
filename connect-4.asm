@@ -13,5 +13,5 @@
 !src	"bin2vera.inc"
 
 	jsr Init_VERA
-	jsr Load_Board
+	jsr Load_bins
 	rts

@@ -64,16 +64,14 @@ Load_bins:
 
         +SET_NAME (Pieces-Board), Board
 
-        +LOAD_VERA $4000, 0
+        +LOAD_VERA $4000, 0     ;LOAD to VERA address $04000
 
         lda #%01110001          ; Current field = 0, enable sprite, layers enabled and output mode 1
         sta VERA_DC_VIDEO
 
         +SET_NAME (Binend-Pieces), Pieces
 
-        +LOAD_VERA $D600, 0
-
-
+        +LOAD_VERA $D600, 0     ;LOAD to VERA address $0D600
 
         rts
 

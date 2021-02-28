@@ -54,8 +54,7 @@ Load_Board:
         stz VERA_L0_HSCROLL_L
         stz VERA_L0_VSCROLL_L
 
-        lda #$01
-        sta VERA_L0_VSCROLL_H
+        stz VERA_L0_VSCROLL_H
 
         lda #1                  ; Logical file number
         ldx #8                  ; Device 8 = SDcard

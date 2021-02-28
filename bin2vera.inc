@@ -53,7 +53,9 @@ Load_Board:
 
         stz VERA_L0_HSCROLL_L
         stz VERA_L0_VSCROLL_L
-        stz VERA_L0_VSCROLL_H
+
+        lda #$01
+        sta VERA_L0_VSCROLL_H
 
         lda #1                  ; Logical file number
         ldx #8                  ; Device 8 = SDcard
@@ -63,10 +65,12 @@ Load_Board:
 
         +SET_NAME (Pieces-Board), Board
 
+        +LOAD_VERA $4000, 0
+
         lda #%01110001          ; Current field = 0, enable sprite, layer1 and output mode 1
         sta VERA_DC_VIDEO
 
-        +LOAD_VERA $4000, 0
+
 
         rts
 

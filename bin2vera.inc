@@ -20,6 +20,8 @@ Load_Board:
         lda #$06                ;Map Height/width disabled, 4BPP
         sta VERA_L0_CONFIG
 
+        +VERA_SET_ADDR $1F200, INC1
+
         stz VERA_L0_MAPBASE     ;Map base disabled
 
         lda #$20                ; image start address (($04000 >> 11) = 2) << 2

@@ -67,7 +67,7 @@ Load_Board:
 
         +LOAD_VERA $4000, 0
 
-        lda #%01110001          ; Current field = 0, enable sprite, layer1 and output mode 1
+        lda #%01110001          ; Current field = 0, enable sprite, layers enabled and output mode 1
         sta VERA_DC_VIDEO
 
 

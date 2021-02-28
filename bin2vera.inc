@@ -17,36 +17,39 @@ Init_VERA:
         rts
 
 Load_Board:
-        lda #$06                ;Map Height/width disabled, 4BPP
-        sta VERA_L0_CONFIG
-
         +VERA_SET_ADDR $1F200, INC1
 
-        stz VERA_L0_MAPBASE     ;Map base disabled
+        lda #%11000001
+        sta VERA_DATA0
 
-        lda #$20                ; image start address (($04000 >> 11) = 2) << 2
-        sta VERA_L0_TILEBASE
+        stz VERA_DATA0
+        stz VERA_DATA0
+        stz VERA_DATA0
+        stz VERA_DATA0
 
-        stz VERA_L0_HSCROLL_L
-        stz VERA_L0_VSCROLL_L
-        stz VERA_L0_VSCROLL_H
+        lda #%00010000
+        sta VERA_DATA0
 
-        lda #1			; Logical file number
-	ldx #8			; Device 8 = sd card
-	ldy #0			; 0=ignore address in bin file
-				; 1=use address in bin file
-	jsr SETLFS
+        stz VERA_DATA0
+        stz VERA_DATA0
+        stz VERA_DATA0
+        stz VERA_DATA0
+
+        lda #1
+        ldx #8
+        ldy #0
+
+        jsr SETLFS
 
         lda #(Pieces-Board)
         ldx #<Board
         ldy #>Board
         jsr SETNAM
 
-        ldy #$40		; VERA HIGH/MID address
-	ldx #$00		; VERA LOW address
-	lda #$02		; VERA BANK + 2
-	jsr LOAD
-
+        ldy #$40
+        ldx #$00
+        lda #$02
+        jsr LOAD
         rts
 
 Bin2vera_end:

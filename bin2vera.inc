@@ -4,6 +4,30 @@ Board   !text   "connect4board.bin"
 Pieces  !text   "connect4pcs.bin"
 binend:
 
+;******************************************************************************
+; Sets Address and Bank number for VERA
+;******************************************************************************
+; Uses: A, X, Y
+;******************************************************************************
+!macro LOAD_VERA .addr, .bank {
+        ldy #>.addr
+        ldx #<.addr
+        lda #.bank+2
+        jsr LOAD
+}
+;******************************************************************************
+; Sets lenght of filename and address for SETNAM routine
+;******************************************************************************
+; Uses: A, X, Y
+;******************************************************************************
+
+!macro SET_NAME .len, .addr {
+        lda #.len
+        ldx #<.addr
+        ldy #>.addr
+        jsr SETNAM
+}
+
 Init_VERA:
         lda #0                  ;Set screen mode 40x30 (320x240)
         jsr Screen_set_mode
@@ -17,43 +41,33 @@ Init_VERA:
         rts
 
 Load_Board:
-        lda #$1F
-        sta VERA_ADDR_H
-        lda #$20
-        sta VERA_ADDR_M
-        stz VERA_ADDR_L
+        lda #$06                ; Map height/ width disabled ,  Bitmap mode 4BPP
+        sta VERA_L0_CONFIG
 
-        lda #%11000001
-        sta VERA_DATA0
+        stz VERA_L0_MAPBASE     ; Map base disabled
 
-        stz VERA_DATA0
-        stz VERA_DATA0
-        stz VERA_DATA0
-        stz VERA_DATA0
+        lda #$20                ; image start address (($04000 >> 11) = 2) << 2
+        sta VERA_L0_TILEBASE
 
-        lda #%00010000
-        sta VERA_DATA0
+        stz VERA_L0_HSCROLL_H
 
-        stz VERA_DATA0
-        stz VERA_DATA0
-        stz VERA_DATA0
-        stz VERA_DATA0
+        stz VERA_L0_HSCROLL_L
+        stz VERA_L0_VSCROLL_L
+        stz VERA_L0_VSCROLL_H
 
-        lda #1
-        ldx #8
-        ldy #0
+        lda #1                  ; Logical file number
+        ldx #8                  ; Device 8 = SDcard
+        ldy #0                  ; 0=ignore address in bin file
 
         jsr SETLFS
 
-        lda #(Pieces-Board)
-        ldx #<Board
-        ldy #>Board
-        jsr SETNAM
+        +SET_NAME (Pieces-Board), Board
 
-        ldy #$40
-        ldx #$00
-        lda #$02
-        jsr LOAD
+        lda #%01110001          ; Current field = 0, enable sprite, layer1 and output mode 1
+        sta VERA_DC_VIDEO
+
+        +LOAD_VERA $4000, 0
+
         rts
 
 Bin2vera_end:

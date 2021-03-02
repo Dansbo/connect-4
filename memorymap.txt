@@ -1,0 +1,2 @@
+Red piece starts at $D600 ($D600>>5 = $06B0) Measures (8x8x4) / 128 bytes $60
+Blue piece starts at $D680 ($D680>> = $06B4)

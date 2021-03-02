@@ -1,5 +1,39 @@
 # connect-4
 
+March 2 2021:
+Today I succeeded in loading the sprites/gamepieces into memory. I created a spriteattrib.bin file, which contains the sprite attributes, which are loaded directly into to the sprite registers of VERA.
+
+I struggled alot to remember how to convert the VERA addres, where the picture is loaded to the address that is used in the sprite registers.
+
+I could vaguely remember that it was something like taking the VERA addres and shifting it by a number of bits either right or left. The issue must be that I never really understood why it was necessary. My brother referred me to the documentation for the VERA and I read it several times.
+
+Finally it dawned on me. The issue is that the address in the sprite registers only considers the top 7 bits of the address.
+
+In binary the hexadecimal address of $0D600 converts to %1101 0110 0000 0000 and when we want to tell VERA, where to fetch the image data for the sprite we can shift the number right 5 times, which will remove the lower five 0, which are unnecessary anyway (though not mathematically)
+
+When shifted the referral address becomes %110 1011 0000 which converts to $06B0 in hexadecimal.
+
+The sprite attributes file was rather easy to make. (I peeked at the file made with the project my brother and I made)
+
+The sprite attribute registers in VERA contains 8 offsets which all can be described with hexadecimal. So for the first sprite the data became:
+
+                        B0 06 00 00 00 00 00 50
+
+Remember the 65c02 is little endian which means it reads address "backwards" why is why the address is flipped. The last byte was calculated as %0101 0000 which converts to $50.
+The %0101 defines the size of the sprite to be 16x16 pixels. So I could just copy that line 21 times.
+
+The next address was calculated as follows.
+
+Since the pieces.bin cointains both pieces on top of each other the size of the original picture is 16x32 but we don't want to shop both pieces at a time. So I needed to calculate how space the first piece takes in ram.
+
+I have made use of only the first 16 colors in the CX16 palette (C64 palette) so this means that picture is 4 bpp.
+So the calculation becomes 16x16x4 = 1024 bits. Which equals 1024/8 = 128 bytes. This converts to $80 which has to be added to the startaddress of the picture $D600 + $80 = $D680. So the referral address is $D680>>5 = $06B4
+
+So then I added 21 new entries as above but just switching the first B0 out with B4.
+
+As I tested the first sprite by just enabling it I noticed that the "holes" in my gameboard picture aren't aligned, so I need to create a new picture.
+____________________________________________________________________________________________________
+
 February 28 2021:
 I succeeded by getting the board loaded to the screen using old routines and macros from the project X-shots I had with my brother.
 

@@ -2,6 +2,7 @@
 ; *************************** Global variables ********************************
 Board   !text   "connect4board.bin"
 Pieces  !text   "connect4pcs.bin"
+Sprites !text   "spriteattrib.bin"
 Binend:
 
 ;******************************************************************************
@@ -69,9 +70,13 @@ Load_bins:
         lda #%01110001          ; Current field = 0, enable sprite, layers enabled and output mode 1
         sta VERA_DC_VIDEO
 
-        +SET_NAME (Binend-Pieces), Pieces
+        +SET_NAME (Sprites-Pieces), Pieces
 
         +LOAD_VERA $D600, 0     ;LOAD to VERA address $0D600
+
+        +SET_NAME (Binend-Sprites), Sprites
+
+        +LOAD_VERA $FC08, 1
 
         rts
 

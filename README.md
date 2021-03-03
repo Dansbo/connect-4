@@ -31,7 +31,11 @@ So the calculation becomes 16x16x4 = 1024 bits. Which equals 1024/8 = 128 bytes.
 
 So then I added 21 new entries as above but just switching the first B0 out with B4.
 
+Before finishing up the spriteattrib.bin file I inserted $00 00 in the beginning, as I believe the LOAD kernal routine uses the first two bytes as address. Which I am not using in my case.
+
 As I tested the first sprite by just enabling it I noticed that the "holes" in my gameboard picture aren't aligned, so I need to create a new picture.
+
+The data of spriteattrib.bin is loaded to Bank 1 $FC08 as I believe the first sprite register is used by the mousepointer, which I hope to use later.
 ____________________________________________________________________________________________________
 
 February 28 2021:

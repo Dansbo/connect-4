@@ -4,7 +4,7 @@ Board   !text   "connect4board.bin"
 Pieces  !text   "connect4pcs.bin"
 Sprites !text   "spriteattrib.bin"
 Binend:
-
+; ********************************* Macros ************************************
 ;******************************************************************************
 ; Sets Address and Bank number for VERA
 ;******************************************************************************

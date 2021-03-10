@@ -1,5 +1,24 @@
 # connect-4
 
+March 10, 2021:
+
+I have painstakingly recreated my gameboard today. Drawing images takes more time than you think. I also took a couple of tries before I got it right.
+
+But it is done now. The column numbers are hardcoded into the picture and I have added credits.
+
+Also I believe most of the the Text User Interface is done. I have created a small branch that changes the color of the player number to the corresponding color of the gamepiece.
+
+Furthermore I encountered a problem when I tried to look up the color codes for the C64 compatible codes found at:
+
+https://github.com/commanderx16/x16-docs/blob/master/Commander%20X16%20Programmer's%20Reference%20Guide.md#new-control-characters
+
+It didn't work with COLORPORT. But after asking my brother again I was recommended to use the PETSCII color routine insted of COLORPORT. It takes a couple of more lines but hopefully it is more CX16 development secure.
+
+My next step will be to create a gameloop and possibly look into the possibility of emptying the buffer so that the user cannot just press in beforehand what they want to do.
+
+Also I need to get to understand replacing the interrupt handler. I think that maybe I will have the computer keep track of time played in the game.
+_______________________________________________________________________________
+
 March 9, 2021:
 
 Today I started trying to make the text userinterface to my game.

@@ -11,7 +11,9 @@
 !src	"cx16stuff/cx16.inc"
 !src	"cx16stuff/vera0.9.inc"
 !src	"bin2vera.inc"
+!src	"TextUI.inc"
 
 	jsr Init_VERA
 	jsr Load_bins
+	jsr TextUI
 	rts

@@ -1,6 +1,22 @@
 # connect-4
 
-March 2 2021:
+March 9, 2021:
+
+Today I started trying to make the text userinterface to my game.
+My first thought was to number the columns, so it would be more intuitive for the user, how to choose which column they want to drop their piece into.
+
+I created a text string containing all the numbers from 1 to 7. Thinking that it would be easier to just type spaces into the string and then place the numbers using my old Go_XY function. I created the Go_XY function back in the day so that it is more intuitive for me as a programmer, that X defines the horizontal placement of the cursor instead of the native x defining the vertical cursor placement.
+
+Maybe that is just remnants from my time as a math student.
+
+Well, as I got the text to work I realised that I cannot align the cursor placement with my drawing. I also noticed that the "holes" in the board are not aligned. So maybe I should create a new board and just "hard-code" the column numbers into the bitmap.
+
+It is literally back to the drawing board for me.
+
+But atleast most of the "boring" stuff of the game is done being coded. So I expect next time I am updating this readme file that I will have created a new board and got the user interface up and running.
+_______________________________________________________________________________
+
+March 2, 2021:
 Today I succeeded in loading the sprites/gamepieces into memory. I created a spriteattrib.bin file, which contains the sprite attributes, which are loaded directly into to the sprite registers of VERA.
 
 I struggled alot to remember how to convert the VERA addres, where the picture is loaded to the address that is used in the sprite registers.
@@ -38,7 +54,7 @@ As I tested the first sprite by just enabling it I noticed that the "holes" in m
 The data of spriteattrib.bin is loaded to Bank 1 $FC08 as I believe the first sprite register is used by the mousepointer, which I hope to use later.
 ____________________________________________________________________________________________________
 
-February 28 2021:
+February 28, 2021:
 I succeeded by getting the board loaded to the screen using old routines and macros from the project X-shots I had with my brother.
 
 I have also loaded the pieces that I figure I will be using sprites to move around.
@@ -53,7 +69,7 @@ After that I need to have some bytes set aside to store the information of where
 
 ____________________________________________________________________________________________________
 
-February 27 2021:
+February 27, 2021:
 I am realizing that starting from scratch is a bit of a test for myself. I can only blame myself as I have put this off for way to long.
 
 My brother has been kind enough to help me. I cannot comprehend how frustrating this must be for him, as he also helped me a lot in the beginning. Almost a year ago. Lesson learned! I need to keep on programming to keep my knowledge up.
@@ -70,7 +86,7 @@ Anyways this is how far I got today.
 
 ____________________________________________________________________________________________________
 
-February 26 2021:
+February 26, 2021:
 This will be a project to try and revitalize my enthusiasm with assembly programming for the Commander X16.
 
 I thought to myself that I had already created tictactoe for the platform.

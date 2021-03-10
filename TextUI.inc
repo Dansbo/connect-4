@@ -34,17 +34,17 @@ Print_Str:
 
 
 TextUI:
-        ldx #3
-        ldy #4
+        ldx #0
+        ldy #0
         jsr Go_XY
 
-        ldx #<@columns
-        ldy #>@columns
+        ldx #<@credit
+        ldy #>@credit
         jsr Print_Str
 
         rts
 
-@columns        !pet    "1   2   3   4   5   6   7",0
+@credit !pet    "by dansbo",0
 
 
 

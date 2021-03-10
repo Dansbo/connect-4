@@ -4,6 +4,7 @@ Board   !text   "connect4board.bin"
 Pieces  !text   "connect4pcs.bin"
 Sprites !text   "spriteattrib.bin"
 Binend:
+Player  !byte   1
 ; ********************************* Macros ************************************
 ;******************************************************************************
 ; Sets Address and Bank number for VERA
@@ -33,8 +34,14 @@ Init_VERA:
         lda #0                  ;Set screen mode 40x30 (320x240)
         jsr Screen_set_mode
 
-        lda #$01                ;Black background and white text
-        sta COLORPORT
+        lda #$01                ;Swap to BG color
+        jsr CHROUT
+        lda #$90                ;Black color
+        jsr CHROUT
+        lda #$01                ;Swap to FG color
+        jsr CHROUT
+        lda #$05                ;White color
+        jsr CHROUT
 
         lda #PET_CLEAR          ;Clear screen
         jsr CHROUT

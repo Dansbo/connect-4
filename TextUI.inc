@@ -34,18 +34,62 @@ Print_Str:
 
 
 TextUI:
-        ldx #0
+        ldx #31
         ldy #0
         jsr Go_XY
 
-        ldx #<@credit
-        ldy #>@credit
+        ldx #<@player
+        ldy #>@player
         jsr Print_Str
 
+        ldx #31
+        ldy #2
+        jsr Go_XY
+
+        ldx #<@choose
+        ldy #>@choose
+        jsr Print_Str
+
+        ldx #31
+        ldy #3
+        jsr Go_XY
+
+        ldx #<@column
+        ldy #>@column
+        jsr Print_Str
+
+        ldx #38
+        ldy #0
+        jsr Go_XY
+
+        lda Player
+        bne @2
+
+        lda #$1C                ;Change foreground color to red
+        jsr CHROUT
+
+        ldx #<@num1
+        ldy #>@num1
+        jsr Print_Str
+        bra @end
+
+@2      lda #$1F                ;Change foreground color to blue
+        jsr CHROUT
+
+        ldx #<@num2
+        ldy #>@num2
+        jsr Print_Str
+
+
+@end    lda #$05                ;Change foreground color to white
+        jsr CHROUT
         rts
 
-@credit !pet    "by dansbo",0
-
+@player !pet    "player ",0
+@choose !pet    "choose a",0
+@column !pet    "column!",0
+@num1   !pet    "1",0
+@num2   !pet    "2",0
 
 
 TextUIend

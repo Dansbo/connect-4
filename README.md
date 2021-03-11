@@ -1,5 +1,21 @@
 # connect-4
 
+March 11, 2021:
+Today I have spent some time really understanding how to replace the IRQ vector for vertical sync of the VERA as I imagine that I will be using it for my project here.
+
+I have also crated a winscenarios.inc where I have listed every single of the possible 69 win scenarios in !byte firm.
+
+The thought is that I have now "learned" my program to identify when a player has won. As far as I can calculate that took up 75 bytes of memory just doing that. The strategy I used for tictactoe was to also "learn" the program to identify when someone is close to winning. So I figure i need atleast 75 bytes more just to do that. Possibly even more as I could see a problem if the program doesn't know or anticipate a win prior to having connected 3 pieces.
+
+My worries at the moment is that connect-4 is not as simple a game as tictactoe. There are "rules" that define that every single "hole" below the winning placement needs to be filled up as well.
+
+For instance you can deny the opponent a win by not putting a piece below the winning placement of the opponent and thus either forcing the opponent to drop a gamepiece into the placement below and allowing you to block their win or start trying to connect 4 pieces in another direction...
+
+So i am wondering if I will at all be able to keep all the code within the memory of the CX16?
+
+Perhaps this game will force me to use the "high" memory area of the CX16....
+_______________________________________________________________________________
+
 March 10, 2021:
 
 I have painstakingly recreated my gameboard today. Drawing images takes more time than you think. I also took a couple of tries before I got it right.

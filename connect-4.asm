@@ -12,6 +12,7 @@
 !src	"cx16stuff/vera0.9.inc"
 !src	"bin2vera.inc"
 !src	"TextUI.inc"
+!src	"winscenarios.inc"
 
 	jsr Init_VERA
 	jsr Load_bins

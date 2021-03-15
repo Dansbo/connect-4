@@ -1,5 +1,54 @@
 # connect-4
 
+March 15, 2021:
+
+I think maybe I had my "Eurika!" moment just now. Of course in the middle where I was making dinner. But I had to go and type down my idea so that I would not forget it.
+
+Instead of doing like I did with tictactoe where I went and defined every single near win. Maybe I could make a small routine to figure out if someone one, or are close to.
+
+Instead of running through every place in the board, maybe I could just have the routine look at the most "interesting" places and then keep a counter of how many a given player have in a row.
+
+So instead of running every place trough sequentially I believe it would be better to run through it sequentially and then run a check. If that check does not match a win then on to the next place and so forth.
+
+Imagine the board like this:
+
+        0       0       0       0       0       0       0
+        0       0       0       0       0       0       0
+        0       0       B       R       0       0       0
+        0       0       R       B       0       0       0
+        0       0       B       R       B       0       0
+        0       0       R       B       R       B       0
+
+My thought is to loop through one or the other way. First the routine encountes a "Blue" piece it should check in a 3 x 3 area unless it is the lowest row.
+
+Backwards it first encounters a B at row 5 where 0 is the top row. Then I would like the routine to scan sort of like this:
+
+        B       0       0
+        R       B       0
+        -       -       -
+
+The lowest row of this cut-out does not exist. But the routine could then check one place to the left. That is not a B, så check up-left. Thats a B so then move cut-out to that place and then increment a counter that now there is two in a row. And so forth. When the counter is incremented to 3 there is a win. At 2 there is a near win.
+
+It will never be necessary to check "backwards" as we have already checked that. So let's assume that I check the bytes backwards. My strategy will be as follows.
+
+        X is the counter for the separate bytes
+        A zeropage will be the counter for number of connected pieces
+
+So X is decremented from 41 to 40 in the above example.
+        So we will check the X'th place of the byte and this is a gamepiece.
+        -Next step check X-1 to see if that is a matching piece.
+                -If not check X-6 too see if that is a matching piece.
+                        -If not check X-7 to see if that is a matching piece.
+                                -If not check X-8 to see if that is a matching piece.
+
+        If any of the above steps is a match, then we increment ZP and (push X to the stack) and decrement X as needed and back to the above loop.
+        If none of the above steps or ZP<3 then we just decrement X and check the rest.
+
+I hope this makes sence to any readers out there.
+
+So if I can program the above routine then I think I can handle it without the win scenarios
+_______________________________________________________________________________
+
 March 11, 2021:
 Today I have spent some time really understanding how to replace the IRQ vector for vertical sync of the VERA as I imagine that I will be using it for my project here.
 

@@ -34,12 +34,12 @@ It will never be necessary to check "backwards" as we have already checked that.
         X is the counter for the separate bytes
         A zeropage will be the counter for number of connected pieces
 
-So X is decremented from 41 to 40 in the above example.
+        So X is decremented from 41 to 40 in the above example.
         - So we will check the X'th place of the byte and this is a gamepiece.
         - Next step check X-1 to see if that is a matching piece.
-                - If not check X-6 too see if that is a matching piece.
-                        - If not check X-7 to see if that is a matching piece.
-                                - If not check X-8 to see if that is a matching piece.
+        - If not check X-6 too see if that is a matching piece.
+        - If not check X-7 to see if that is a matching piece.
+        - If not check X-8 to see if that is a matching piece.
 
         If any of the above steps is a match, then we increment ZP and (push X to the stack) and decrement X as needed and back to the above loop.
         If none of the above steps or ZP<3 then we just decrement X and check the rest.

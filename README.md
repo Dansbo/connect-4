@@ -41,7 +41,7 @@ It will never be necessary to check "backwards" as we have already checked that.
         - If not check X-7 to see if that is a matching piece.
         - If not check X-8 to see if that is a matching piece.
 
-        If any of the above steps is a match, then we increment ZP and (push X to the stack) and decrement X as needed and back to the above loop.
+        If any of the above steps is a match, then we increment ZP and (push X to the stack) and decrement X as needed and back to the above loop but only check in one direction if ZP>2.
         If none of the above steps or ZP<3 then we just decrement X and check the rest.
 
 I hope this makes sence to any readers out there.

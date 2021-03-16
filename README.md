@@ -1,5 +1,14 @@
 # connect-4
 
+March 16, 2021:
+
+Today I've been working with the IRQ Vector for Vertical sync. Kudos to Matt Heffernan (Slithymatt) as I have been watching his episode about interrupts (lesson 10). To create my own IRQ handler.
+
+I can get the custom IRQ handler to work. But when I enable my existing (working) routines the IRQ handler doesn't work.
+
+My initial thought is that it has something to do when I call my routines. But what I don't understand is why my routines get the X16 emulator to crash at a WAI.
+_______________________________________________________________________________
+
 March 15, 2021:
 
 I think maybe I had my "Eurika!" moment just now. Of course in the middle where I was making dinner. But I had to go and type down my idea so that I would not forget it.

@@ -41,7 +41,7 @@ Init_IRQ:
 	cli				;Enable interrupts now Custom Vector is set.
 
 @Main_loop:
-	wai				;Wait for IRQ
+	wai				;Wait for IRQ PROBLEM ATM!!
 	jsr GETIN
 	cmp #0				;If no input wait for input
 	beq @Main_loop

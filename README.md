@@ -1,5 +1,20 @@
 # connect-4
 
+March 18, 2021:
+
+Well there was nothing wrong with the interupt handler that I created. The only issue was, that I was calling my routines every time.
+
+My TextUI routine needs to be called everytime that the player is switched. But that doesn't mean that I need to rewrite the whole routine.
+
+So I think that I will use the Vsync interupt handler, to time, when to move the sprites and such.
+
+Also just now I realize that my brother had already made the same code I did for the interupt handler as a macro in CX16.inc so I didn't need to write my own code, but at least now I know and understand how it works.
+
+My brother suggested that instead of running routines within the interupt handler that I should just use a variable "switch" so my routines know, when they need to be run. That seems like a good idea and I also believe that the code will be more readable.
+
+I think my next project will be to implement a "playtime" counter. My initial thought was to have a counter for each player. But that seems rather unnecessary, as the AI player will always be faster than a human.
+_______________________________________________________________________________
+
 March 16, 2021:
 
 Today I've been working with the IRQ Vector for Vertical sync. Kudos to Matt Heffernan (Slithymatt) as I have been watching his episode about interrupts (lesson 10). To create my own IRQ handler.

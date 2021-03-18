@@ -14,18 +14,21 @@
 !src	"TextUI.inc"
 !src	"winscenarios.inc"
 
-	jmp Init_IRQ
+	jmp start
 
 ;********************************Constants*************************************
 IRQVec = $0314
 
 ;********************************Variables*************************************
 default_irq_vector	!word	0
+Vsync_enabled		!byte	0
 
-Init_IRQ:
+start
 	jsr Init_VERA
 	jsr Load_bins
+	jsr TextUI
 
+Init_IRQ:
 	lda IRQVec
 	sta default_irq_vector
 	lda IRQVec+1
@@ -62,9 +65,10 @@ Custom_IRQ
 	lda VERA_ISR
 	and #$01
 	beq @continue			;Non Vsync continue to normal IRQ
+!byte $db
+	lda #1
+	sta Vsync_enabled
 
-	;Run actual program
-	jsr TextUI
 
 @continue
 	jmp (default_irq_vector)

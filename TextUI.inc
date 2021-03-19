@@ -5,10 +5,10 @@
 ;Move text cursor
 ;******************************************************************************
 Go_XY:
-	stx TMP1		;Switching X and Y around so X is
-	sty TMP2		;Horizontal position and Y is
-	ldx TMP2		;Vertical as we know from graphing
-	ldy TMP1
+	phx            		;Switching X and Y around so X is
+	phy            		;Horizontal position and Y is
+	plx            		;Vertical as we know from graphing
+	ply
 
 	clc
 	jsr PLOT

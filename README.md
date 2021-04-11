@@ -1,5 +1,7 @@
 # connect-4
 
+testing
+
 March 18, 2021:
 
 Well there was nothing wrong with the interupt handler that I created. The only issue was, that I was calling my routines every time.

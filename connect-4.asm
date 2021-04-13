@@ -14,12 +14,13 @@
 !src	"TextUI.inc"
 !src	"winscenarios.inc"
 
-	jmp start
+	jmp main
 
 !src	"globals.inc"
 
+;***********************************Main***************************************
 
-start
+main
 	jsr Init_VERA
 	jsr Load_bins
 
@@ -48,6 +49,7 @@ Init_IRQ:
 	beq @Main_loop
 	cmp #$51			;If Q then exit game
 	beq @Quit
+	stz Vsync_enabled		;Reset Vsync_enabled
 	bra @Main_loop			;Unexpected keystroke back to loop
 
 @Quit:

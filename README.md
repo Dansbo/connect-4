@@ -1,4 +1,15 @@
 # connect-4
+April 13, 2021:
+Finally I am done moving from the old apartment. Got setup with a new computer and programming environment. So I learned how to compile til X16 Emulator and ROM for myself. So now I should be able to update on my own in the future.
+
+With regards to my programming I have cleaned it up a bit. My brother suggested that I keep all globals in one inc file instead of having them spread all around. This should hopefully make it much easier for me to find them in the future, when I want to look one up.
+
+Tomorrow I need to hand over the old apartment to the owner. Hopefully this can be done without too much of a cost. *Fingers crossed*
+
+I will be busy on Thursday as there is a common workday in the new apartment building, where we have to do some garden work. I am looking forward to get to know my new neighbors. So maybe I can get some coding done Friday.
+
+On Saturday I am going to a summerhouse that we have booked with my in-laws. I plan on bringing my laptop, so that I can code a bit, if I get the time. 
+_______________________________________________________________________________
 
 March 18, 2021:
 

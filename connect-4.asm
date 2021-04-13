@@ -65,7 +65,6 @@ Custom_IRQ
 	lda VERA_ISR
 	and #$01
 	beq @continue			;Non Vsync continue to normal IRQ
-!byte $db
 	lda #1
 	sta Vsync_enabled
 

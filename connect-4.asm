@@ -16,17 +16,12 @@
 
 	jmp start
 
-;********************************Constants*************************************
-IRQVec = $0314
+!src	"globals.inc"
 
-;********************************Variables*************************************
-default_irq_vector	!word	0
-Vsync_enabled		!byte	0
 
 start
 	jsr Init_VERA
 	jsr Load_bins
-	jsr TextUI
 
 Init_IRQ:
 	lda IRQVec
@@ -47,6 +42,7 @@ Init_IRQ:
 	wai				;Wait for IRQ PROBLEM ATM!!
 	lda Vsync_enabled
 	beq @Main_loop			;If not vsync then wait for vsync
+	jsr TextUI
 	jsr GETIN
 	cmp #0				;If no input wait for input
 	beq @Main_loop

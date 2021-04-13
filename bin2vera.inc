@@ -1,10 +1,5 @@
         jmp Bin2vera_end
-; *************************** Global variables ********************************
-Board   !text   "connect4board.bin"
-Pieces  !text   "connect4pcs.bin"
-Sprites !text   "spriteattrib.bin"
-Binend:
-Player  !byte   1
+
 ; ********************************* Macros ************************************
 ;******************************************************************************
 ; Sets Address and Bank number for VERA

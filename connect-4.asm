@@ -45,6 +45,8 @@ Init_IRQ:
 
 @Main_loop:
 	wai				;Wait for IRQ PROBLEM ATM!!
+	lda Vsync_enabled
+	beq @Main_loop			;If not vsync then wait for vsync
 	jsr GETIN
 	cmp #0				;If no input wait for input
 	beq @Main_loop

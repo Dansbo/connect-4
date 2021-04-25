@@ -15,7 +15,7 @@ Binend:
 Player  		!byte   0
 default_irq_vector	!word	0
 Vsync_enabled		!byte	0
-Timer_enabled		!byte	0
+Timer_enabled		!byte	1
 ticks			!byte	0
 seconds			!byte	0
 minutes			!byte	0

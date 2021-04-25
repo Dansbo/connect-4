@@ -13,6 +13,7 @@
 !src	"bin2vera.inc"
 !src	"TextUI.inc"
 !src	"winscenarios.inc"
+!src	"timer.inc"
 
 	jmp main
 
@@ -23,6 +24,7 @@
 main
 	jsr Init_VERA
 	jsr Load_bins
+	jsr Reset
 
 Init_IRQ:
 	lda IRQVec
@@ -44,6 +46,7 @@ Init_IRQ:
 	lda Vsync_enabled
 	beq @Main_loop			;If not vsync then wait for vsync
 	jsr TextUI
+	jsr Timer
 	jsr GETIN
 	cmp #0				;If no input wait for input
 	beq @Main_loop

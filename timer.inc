@@ -4,8 +4,8 @@ Reset
 	stz ticks
 	stz seconds
 	stz minutes
-	ldx #38
-	ldy #38
+	ldx #30
+	ldy #29
 	jsr Go_XY
 	ldx #<Game
 	ldy #>Game

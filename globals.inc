@@ -19,7 +19,7 @@ Timer_enabled		!byte	0
 ticks			!byte	0
 seconds			!byte	0
 minutes			!byte	0
-Game			!pet 	"game time ",0
+Game			!pet 	"game time:",0
 Colon			!pet	":"
 
 

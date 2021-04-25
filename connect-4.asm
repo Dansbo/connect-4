@@ -21,7 +21,7 @@
 
 ;***********************************Main***************************************
 
-main
+main	;Where things before the IRQ handler is run
 	jsr Init_VERA
 	jsr Load_bins
 	jsr Reset
@@ -41,12 +41,12 @@ Init_IRQ:
 	sta VERA_IEN
 	cli				;Enable interrupts now Custom Vector is set.
 
-@Main_loop:
+@Main_loop: ;Called at every vsync
 	wai				;Wait for IRQ PROBLEM ATM!!
 	lda Vsync_enabled
 	beq @Main_loop			;If not vsync then wait for vsync
 	jsr TextUI
-	jsr Timer
+	;jsr Reset
 	jsr GETIN
 	cmp #0				;If no input wait for input
 	beq @Main_loop

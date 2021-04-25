@@ -13,7 +13,7 @@ Reset
 	jmp @end
 
 
-Timer
+@Timer
 	lda Timer_enabled
 	bne +
 	jmp @end

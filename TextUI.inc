@@ -85,11 +85,11 @@ TextUI:
         jsr CHROUT
         rts
 
-@player !pet    "player ",0
-@choose !pet    "choose a",0
-@column !pet    "column!",0
-@num1   !pet    "1",0
-@num2   !pet    "2",0
+@player 	!pet    "player ",0
+@choose 	!pet    "choose a",0
+@column 	!pet    "column!",0
+@num1   	!pet    "1",0
+@num2   	!pet    "2",0
 
 
 TextUIend

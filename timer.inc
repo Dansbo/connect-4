@@ -40,6 +40,7 @@ Reset
 	bra @update_seconds
 
 @next_tick
+	cld			;Exit decimal mode
 	sta ticks
 	jmp @end
 
@@ -70,8 +71,9 @@ Reset
 
 @print
 	cld			;Exit decimal mode
-	ldx #35
-	ldy #49
+	ldx #0
+	ldy #0
+	jsr Go_XY
 	+PRINT_DECIMAL minutes
 	ldx #<Colon
 	ldy #>Colon
